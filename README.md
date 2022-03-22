@@ -18,7 +18,7 @@ This project you learn about of the advantages, and disadvantages of using trees
 * [About](#about)
 * [Resources](#resources-books)
 * [Requirements](#requirements)
-* [Tasks](#tasks:page_with_curl:)
+* [Tasks](#tasks-page_with_curl)
 * [Credits](#credits)
 
 ## About
