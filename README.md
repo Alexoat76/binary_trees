@@ -3,6 +3,9 @@
 <img src="https://img.shields.io/badge/Emacs-blue.svg"/>
 <img src="https://img.shields.io/badge/C-blue.svg"/>
 <img src="https://img.shields.io/badge/Markdown-black.svg"/><br>
+<img src="https://img.shields.io/github/repo-size/Alexoat76/binary_trees"/>
+<img src="https://img.shields.io/github/languages/code-size/Alexoat76/binary_trees.svg"/>
+<img src="https://img.shields.io/github/last-commit/Alexoat76/binary_trees?style=round-square"/>
 </p>
 
 ---
@@ -124,6 +127,13 @@ prototypes for all types and functions written for the project.
 | `9-binary_tree_height.c`         | `size_t binary_tree_height(const binary_tree_t *tree);`                                          |
 | `10-binary_tree_depth.c`         | `size_t binary_tree_depth(const binary_tree_t *tree);`                                           |
 | `11-binary_tree_size.c`          | `size_t binary_tree_size(const binary_tree_t *tree);`                                            |
+| `12-binary_tree_leaves.c`        | `size_t binary_tree_leaves(const binary_tree_t *tree);`                                          |
+| `13-binary_tree_nodes.c`         | `size_t binary_tree_nodes(const binary_tree_t *tree);`                                           |
+| `14-binary_tree_balance.c`       | `int binary_tree_balance(const binary_tree_t *tree);`                                            |
+| `15-binary_tree_is_full.c`       | `int binary_tree_is_full(const binary_tree_t *tree);`                                            |
+| `16-binary_tree_is_perfect.c`    | `int binary_tree_is_perfect(const binary_tree_t *tree);`                                         |
+| `17-binary_tree_sibling.c`       | `binary_tree_t *binary_tree_sibling(binary_tree_t *node);`                                       |
+| `18-binary_tree_uncle.c`         | `binary_tree_t *binary_tree_uncle(binary_tree_t *node);`                                         |
 	
 		
 ## Tests :heavy_check_mark:
@@ -133,18 +143,24 @@ prototypes for all types and functions written for the project.
 ## Helper File :heavy_check_mark:
 
 + **[binary_tree_print.c](./binary_tree_print.c)**: C function that prints binary trees in a `pretty way`.
+	
+## Executables :heavy_check_mark:
+
++ **[executables](./executables)**: Folder of `executables` files. Result of successful compilation and execution of prototype functions for tasks and main files for testing.
 
 	
 ## Tasks :page_with_curl:
 
-### 0. New node
-
-Function that creates a binary tree node.
-* Prototype:  `binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);` 
-* Where `parent` is a pointer to the parent node of the node to create.
-* And `value` is the value to put in the new node.
-* When created, a node does not have any child.
-* The function returns a pointer to the new node, or `NULL` on failure.
++ [x] 0\. **New node**.
+	
++ **[0-binary_tree_node.c](./0-binary_tree_node.c)**
+	
+	Function that creates a binary tree node.
+	* Prototype:  `binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);` 
+	* Where `parent` is a pointer to the parent node of the node to create.
+	* And `value` is the value to put in the new node.
+	* When created, a node does not have any child.
+	* The function returns a pointer to the new node, or `NULL` on failure.
 
 ```bash
 $ ./0-node
@@ -155,14 +171,16 @@ $
 ```
 ---
 
-### 1. Insert left.
++ [x] 1\. **Insert left**.
 
-Function that inserts a node as the left-child of another node.
-* Prototype: `binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value);` 
-* Where  `parent` is a pointer to the node to insert the left-child in
-* And `value` is the value to store in the new node
-* The function returns a pointer to the created node, or `NULL` on failure or if `parent` is `NULL` 
-* If `parent` already has a left-child, the new node must take its place, and the old left-child must be set as the left-child of the new node.
++ **[1-binary_tree_insert](./1-binary_tree_insert)**
+	
+	Function that inserts a node as the left-child of another node.
+	* Prototype: `binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value);` 
+	* Where  `parent` is a pointer to the node to insert the left-child in.
+	* And `value` is the value to store in the new node.
+	* The function returns a pointer to the created node, or `NULL` on failure or if `parent` is `NULL` 
+	* If `parent` already has a left-child, the new node must take its place, and the old left-child must be set as the left-child of the new node.
 
 ```bash
 $ ./1-left
@@ -176,14 +194,16 @@ $
 ```
 ---
 
-### 2. Insert right.
++ [x] 2\. **Insert right**.
 
-Function that inserts a node as the right-child of another node.
-* Prototype: `binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value);` 
-* Where `parent` is a pointer to the node to insert the right-child in
-* And `value` is the value to store in the new node
-* The function returns a pointer to the created node, or `NULL` on failure or if `parent` is `NULL` 
-* If `parent` already has a right-child, the new node must take its place, and the old right-child must be set as the right-child of the new node.
++ **[2-binary_tree_insert_right.c](./2-binary_tree_insert_right.c)**
+	
+	Function that inserts a node as the right-child of another node.
+	* Prototype: `binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value);` 
+	* Where `parent` is a pointer to the node to insert the right-child in
+	* And `value` is the value to store in the new node
+	* The function returns a pointer to the created node, or `NULL` on failure or if `parent` is `NULL` 
+	* If `parent` already has a right-child, the new node must take its place, and the old right-child must be set as the right-child of the new node.
 
 ```bash
 $ ./2-right 
@@ -197,12 +217,14 @@ $
 ```
 ---
 
-### 3. Delete.
++ [x] 3\. **Delete**.
 
-Function that deletes an entire binary tree.
-* Prototype: `void binary_tree_delete(binary_tree_t *tree);` 
-* Where `tree` is a pointer to the root node of the tree to delete.
-* If `tree` is `NULL`, do nothing.
++ **[3-binary_tree_delete.c](./3-binary_tree_delete.c)**
+	
+	Function that deletes an entire binary tree.
+	* Prototype: `void binary_tree_delete(binary_tree_t *tree);` 
+	* Where `tree` is a pointer to the root node of the tree to delete.
+	* If `tree` is `NULL`, do nothing.
 
 ```bash
 $ valgrind ./3-del
@@ -227,13 +249,15 @@ $
 ```
 ---
 
-### 4. Is leaf.
++ [x] 4\. **Is leaf**.
+	
++ **[4-binary_tree_is_leaf.c](./4-binary_tree_is_leaf.c)**
 
-Function that checks if a node is a leaf.
-* Prototype: `int binary_tree_is_leaf(const binary_tree_t *node);` 
-* Where `node` is a pointer to the node to check.
-* The function returns `1` if `node` is a leaf, otherwise `0` 
-* If `node` is `NULL`, return `0`
+	Function that checks if a node is a leaf.
+	* Prototype: `int binary_tree_is_leaf(const binary_tree_t *node);` 
+	* Where `node` is a pointer to the node to check.
+	* The function returns `1` if `node` is a leaf, otherwise `0` 
+	* If `node` is `NULL`, return `0`
 
 ```bash
 $ ./4-leaf 
@@ -247,13 +271,15 @@ $
 ```
 ---
 
-### 5. Is root.
++ [x] 5\. **Is root**.
+	
++ **[5-binary_tree_is_root.c](./5-binary_tree_is_root.c)**
 
-Function that checks if a given node is a root.
-* Prototype: `int binary_tree_is_root(const binary_tree_t *node);` 
-* Where `node` is a pointer to the node to check.
-* The function returns `1` if `node` is a root, otherwise `0` 
-* If `node` is `NULL`, return `0`
+	Function that checks if a given node is a root.
+	* Prototype: `int binary_tree_is_root(const binary_tree_t *node);` 
+	* Where `node` is a pointer to the node to check.
+	* The function returns `1` if `node` is a root, otherwise `0` 
+	* If `node` is `NULL`, return `0`
  
 ```bash
 $ ./5-root 
@@ -267,13 +293,15 @@ $
 ```
 ---
 
-### 6. Pre-order traversal.
++ [x] 6\. **Pre-order traversal**.
+	
++ **[6-binary_tree_preorder.c](./6-binary_tree_preorder.c)** 
 
-Function that goes through a binary tree using pre-order traversal.
-* Prototype: `void binary_tree_preorder(const binary_tree_t *tree, void (*func)(int));` 
-* Where `tree` is a pointer to the root node of the tree to traverse.
-* And `func` is a pointer to a function to call for each node. The value in the node is passed a parameter to this function.
-* If `tree` or `func` is `NULL`, do nothing.
+	Function that goes through a binary tree using pre-order traversal.
+	* Prototype: `void binary_tree_preorder(const binary_tree_t *tree, void (*func)(int));` 
+	* Where `tree` is a pointer to the root node of the tree to traverse.
+	* And `func` is a pointer to a function to call for each node. The value in the node is passed a parameter to this function.
+	* If `tree` or `func` is `NULL`, do nothing.
 
 ```bash
 $ ./6-pre
@@ -291,13 +319,15 @@ $
 ```
 ---
 
-### 7. In-order traversal.
++ [x] 7\. **In-order traversal**.
+	
++ **[7-binary_tree_inorder.c](./7-binary_tree_inorder.c)**
 
-Function that goes through a binary tree using in-order traversal.
-* Prototype: `void binary_tree_inorder(const binary_tree_t *tree, void (*func)(int));` 
-* Where `tree ` is a pointer to the root node of the tree to traverse.
-* And `func` is a pointer to a function to call for each node. The value in the node is passed a parameter to this function.
-* If `tree` or `func` is `NULL`, do nothing.
+	Function that goes through a binary tree using in-order traversal.
+	* Prototype: `void binary_tree_inorder(const binary_tree_t *tree, void (*func)(int));` 
+	* Where `tree ` is a pointer to the root node of the tree to traverse.
+	* And `func` is a pointer to a function to call for each node. The value in the node is passed a parameter to this function.
+	* If `tree` or `func` is `NULL`, do nothing.
 
 ```bash
 $ ./7-in
@@ -315,13 +345,15 @@ $
 ```
 ---
 
-### 8. Post-order traversal.
++ [x] 8\. **Post-order traversal**.
+	
++ **[8-binary_tree_postorder.c](./8-binary_tree_postorder.c)**
 
-Function that goes through a binary tree using post-order traversal.
-* Prototype: `void binary_tree_postorder(const binary_tree_t *tree, void (*func)(int));` 
-* Where `tree` is a pointer to the root node of the tree to traverse.
-* And `func` is a pointer to a function to call for each node. The value in the node is passed a parameter to this function.
-* If `tree` or `func` is `NULL`, do nothing.
+	Function that goes through a binary tree using post-order traversal.
+	* Prototype: `void binary_tree_postorder(const binary_tree_t *tree, void (*func)(int));` 
+	* Where `tree` is a pointer to the root node of the tree to traverse.
+	* And `func` is a pointer to a function to call for each node. The value in the node is passed a parameter to this function.
+	* If `tree` or `func` is `NULL`, do nothing.
 
 ```bash
 $ ./8-post
@@ -339,12 +371,14 @@ $
 ```
 ---
  
-### 9. Height
++ [x] 9\. **Height**.
 
-Function that measures the height of a binary tree.
-* Prototype: `size_t binary_tree_height(const binary_tree_t *tree);` 
-* Where `tree` is a pointer to the root node of the tree to measure the height.
-* If `tree` is `NULL`, your function must return `0`
++ **[9-binary_tree_height.c](./9-binary_tree_height.c)**
+	
+	Function that measures the height of a binary tree.
+	* Prototype: `size_t binary_tree_height(const binary_tree_t *tree);` 
+	* Where `tree` is a pointer to the root node of the tree to measure the height.
+	* If `tree` is `NULL`, your function must return `0`
 
 ```bash
 $ ./9-height 
@@ -358,12 +392,14 @@ $
 ```
 ---
 
-### 10. Depth
++ [x] 10\. **Depth**.
+	
++ **[10-binary_tree_depth.c](./10-binary_tree_depth.c)**
 
-Function that measures the depth of a node in a binary tree.
-* Prototype: `size_t binary_tree_depth(const binary_tree_t *tree);` 
-* Where `tree` is a pointer to the node to measure the depth.
-* If `tree` is `NULL`, your function must return `0`.
+	Function that measures the depth of a node in a binary tree.
+	* Prototype: `size_t binary_tree_depth(const binary_tree_t *tree);` 
+	* Where `tree` is a pointer to the node to measure the depth.
+	* If `tree` is `NULL`, your function must return `0`.
 
 ```bash
 $ ./10-depth 
@@ -377,12 +413,14 @@ $
 ```
 ---
 
-### 11. Size
++ [x] 11\. **Size**.
+	
++ **[11-binary_tree_size.c](./11-binary_tree_size.c)**
 
-Function that measures the size of a binary tree.
-* Prototype: `size_t binary_tree_size(const binary_tree_t *tree);` 
-* Where `tree` is a pointer to the root node of the tree to measure the size.
-* If `tree` is `NULL`, the function returns 0.
+	Function that measures the size of a binary tree.
+	* Prototype: `size_t binary_tree_size(const binary_tree_t *tree);` 
+	* Where `tree` is a pointer to the root node of the tree to measure the size.
+	* If `tree` is `NULL`, the function returns 0.
 
 ```bash
 $ ./11-size 
@@ -395,6 +433,175 @@ Size of 54: 1
 $
 ```
 ---
+
++ [x] 12\. **Leaves**.
+
++ **[12-binary_tree_leaves.c](./12-binary_tree_leaves.c)**
+
+	Function that counts the leaves in a binary tree.
+	* Prototype: `size_t binary_tree_leaves(const binary_tree_t *tree);` 
+	* Where `tree` is a pointer to the root node of the tree to count the number of leaves.
+	* If `tree` is `NULL`, the function must return `0`.
+	* A `NULL` pointer is not a leaf.
+
+```bash
+$ ./12-leaves 
+  .-------(098)--.
+(012)--.       (128)--.
+     (054)          (402)
+Leaves in 98: 2
+Leaves in 128: 1
+Leaves in 54: 1
+$
+```
+---
+
++ [x] 13\. **Nodes**.
+
++ **[13-binary_tree_nodes.c](./13-binary_tree_nodes.c)**
+
+	Function that counts the nodes with at least 1 child in a binary tree
+	* Prototype: `size_t binary_tree_nodes(const binary_tree_t *tree);` 
+	* Where `tree` is a pointer to the root node of the tree to count the number of nodes.
+	* If `tree` is `NULL`, the function must return `0`.
+	* A `NULL` pointer is not a node.
+
+```bash
+$ ./13-nodes
+  .-------(098)--.
+(012)--.       (128)--.
+     (054)          (402)
+Nodes in 98: 3
+Nodes in 128: 1
+Nodes in 54: 0
+$
+```
+---
+
++ [x] 14\. **Balance factor**.
+
++ **[14-binary_tree_balance.c](./14-binary_tree_balance.c)**
+
+	Function that measures the balance factor of a binary tree.
+	* Prototype: `int binary_tree_balance(const binary_tree_t *tree);` 
+	* Where `tree` is a pointer to the root node of the tree to measure the balance factor.
+	* If `tree` is `NULL`, return `0`.
+
+```bash
+$ ./14-balance
+                      .-------(098)--.
+            .-------(045)--.       (128)--.
+       .--(012)--.       (050)          (402)
+  .--(010)     (054)
+(008)
+Balance of 98: +2
+Balance of 128: -1
+Balance of 54: +0
+$
+```
+---
+
++ [x] 15\. **Is full**.
+
++ **[15-binary_tree_is_full.c](./15-binary_tree_is_full.c)**
+
+	Function that checks if a binary tree is full.
+	* Prototype: `int binary_tree_is_full(const binary_tree_t *tree);` 
+	* Where `tree` is a pointer to the root node of the tree to check.
+	* If `tree` is `NULL`, your function must return `0`.
+
+```bash
+$ ./15-full
+       .-------(098)--.
+  .--(012)--.       (128)--.
+(010)     (054)          (402)
+Is 98 full: 0
+Is 12 full: 1
+Is 128 full: 0
+$
+```
+---
+ 
++ [x] 16\. **Is perfect**.
+
++ **[16-binary_tree_is_perfect.c](./16-binary_tree_is_perfect.c)**
+
+	Function that checks if a binary tree is perfect
+	* Prototype: `int binary_tree_is_perfect(const binary_tree_t *tree);` 
+	* Where `tree` is a pointer to the root node of the tree to check.
+	* If `tree` is `NULL`, your function must return `0`.
+
+```bash
+$ ./16-perfect 
+       .-------(098)-------.
+  .--(012)--.         .--(128)--.
+(010)     (054)     (010)     (402)
+Perfect: 1
+
+       .-------(098)-------.
+  .--(012)--.         .--(128)-------.
+(010)     (054)     (010)       .--(402)
+                              (010)
+Perfect: 0
+
+       .-------(098)-------.
+  .--(012)--.         .--(128)-------.
+(010)     (054)     (010)       .--(402)--.
+                              (010)     (010)
+Perfect: 0
+$
+```
+---
+
++ [x] 17\. **Sibling**.
+
++ **[17-binary_tree_sibling.c](./17-binary_tree_sibling.c)**
+
+	Function that finds the sibling of a node
+	* Prototype: `binary_tree_t *binary_tree_sibling(binary_tree_t *node);` 
+	* Where `node` is a pointer to the node to find the sibling.
+	* Your function must return a pointer to the sibling node.
+	* If `node` is `NULL` or the parent is `NULL`, return `NULL`. 
+	* If `node` has no sibling, return `NULL`.
+
+```bash
+$ ./17-sibling
+       .-------(098)-------.
+  .--(012)--.         .--(128)-------.
+(010)     (054)     (110)       .--(402)--.
+                              (200)     (512)
+Sibling of 12: 128
+Sibling of 110: 402
+Sibling of 54: 10
+Sibling of 98: (nil)
+$
+```
+---
+
++ [x] 18\. **Uncle**.
+
++ **[18-binary_tree_uncle.c](./18-binary_tree_uncle.c)**
+
+	Function that finds the uncle of a node
+	* Prototype: `binary_tree_t *binary_tree_uncle(binary_tree_t *node);` 
+	* Where `node` is a pointer to the node to find the uncle.
+	* Your function must return a pointer to the uncle node.
+	* If `node` is `NULL`, return `NULL`. 
+	* If `node` has no uncle, return `NULL`.
+
+```bash
+$ ./18-uncle
+       .-------(098)-------.
+  .--(012)--.         .--(128)-------.
+(010)     (054)     (110)       .--(402)--.
+                              (200)     (512)
+Uncle of 110: 12
+Uncle of 54: 128
+Uncle of 12: (nil)
+$
+```
+---	
+	
 ## Credits
 
 ## Author(s):blue_book:
