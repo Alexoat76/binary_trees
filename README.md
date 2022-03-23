@@ -12,7 +12,13 @@
 
 # 0x1D. C - Binary trees
 
-This project you learn about of the advantages, and disadvantages of using trees as data structures. Throughout the project, it is implemented binary, binary search, AVL, and Max Binary Heap trees.
+This project you learn about of the advantages, and disadvantages of using trees as data structures. Throughout the project, it is implemented binary, binary search, AVL, and Max Binary Heap trees. <br>
+
+<p align="center">
+  <img width="500"  
+        src="https://bournetocode.com/projects/AQA_A_Theory/pages/img/RootedTree.png"
+  >
+</p>
 
 # Getting Started :running:	
 <div style="text-align: justify">
