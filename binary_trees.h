@@ -11,7 +11,7 @@
  * Author: Alex O. Arevalo T.
  * email: 3915@holbertonschool.com
  * Desc: Header file containing prototypes for all functions
- *       in the 0x1D. C - Binary trees.
+ *       in the 0x1D. C - Binary trees. | project
  */
 
 /* Data structures */
